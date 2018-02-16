@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+    <h3 class="col-md-12">Cadastro Produto</h3>
+    <div class="clearfix"></div>
+    <form action="." method="post">
+
+        {% csrf_token %}
+                <!--Cria os campos do formulário-->
+                {{ form.as_p }}
+
+            <button type="submit" class="btn btn-info">Enviar</button>
+            <button type="reset" class="btn btn-danger">Cancelar</button>
+
+    </form>
+
+{% endblock %}

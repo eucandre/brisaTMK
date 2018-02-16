@@ -1,0 +1,33 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	{% for dia in dias.object_list %}	
+    
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-block">
+	        <a href="/item_dia/{{dia.id}}" class="btn btn-primary">{{ dia.dia|upper }}</a> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <br />
+    
+    {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if dias.has_previous %}
+            <a href="?page={{ dias.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ dias.number }} de {{ dias.paginator.num_pages }}.
+        </span>
+
+        {% if dias.has_next %}
+            <a href="?page={{ dias.next_page_number }}">próxima</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

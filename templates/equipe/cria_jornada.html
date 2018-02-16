@@ -1,0 +1,35 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	<form action="" method="post" >
+		{% csrf_token %}
+		<div class="col-md-10">
+			{{ form.nome.label_tag }}
+			{{ form.nome }}
+		</div>
+		<div class="col-md-5">
+			{{form.jornada_equipe.label_tag}}
+			{{form.jornada_equipe}}
+		</div>
+		<div class="col-md-5">
+			{{form.dias_jornada.label_tag}}
+			{{form.dias_jornada}}
+		</div>
+		<div class="col-md-4">
+			{{form.periodo.label_tag}}
+			{{form.periodo}}
+		</div>
+		<div class="col-md-3">
+			{{form.de.label_tag}}
+			{{form.de}}
+		</div>
+		<div class="col-md-3">
+			{{form.ate.label_tag}}
+			{{form.ate}}
+		</div>
+		<div class="col-md-10">
+			<hr>
+			<button type="submit" class="btn btn-success">Enviar</button>
+			<button type="reset" class="btn btn-danger">Cancelar</button>
+		</div>	
+	</form> 
+{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Acesso ao Brisa</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="/media/apoio/css/style.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+  <div class="login">
+  	<h1 class="login-heading">
+      <strong>Bem vindo(a).</strong> Por Favor Efetue o login.</h1>
+      <form method="post" action="/">
+          {% csrf_token %}
+        <input type="text" name="username" placeholder="Email" required="required" class="input-txt" />
+          <input type="password" name="password" placeholder="Senha" required="required" class="input-txt" />
+          <div class="login-footer">
+            <button type="submit" class="btn btn--right">Confirmar  </button>
+
+          </div>
+      </form>
+  </div>
+</div>
+  <script src="/media/apoio/js/index.js"></script>
+
+</body>
+</html>

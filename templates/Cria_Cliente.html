@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h3 class="col-md-12">Cadastro Cliente</h3>
+ <div class="clearfix"></div>
+    <form action="." method="post">
+        {% csrf_token %}
+
+        <div class="col-md-12">
+            {{ form.nome.label_tag }}
+            {{ form.nome }}
+        </div>
+        <div class="col-md-12">
+            {{ form.endereco.label_tag }}
+            {{ form.endereco }}
+        </div>
+        <br>
+        <div class="col-md-12">
+        <button type="submit" class="btn btn-success">ENVIAR</button></div>
+    </form>
+{% endblock %}

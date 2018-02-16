@@ -1,0 +1,64 @@
+{% extends "base2.html" %}
+
+{% block conteudo %} 
+
+	{{form.errors}}
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+	<form action="" method="post" enctype="multipart/form-data"> 
+		{% csrf_token %}
+
+		<div class="col-md-10 col-sm-10">
+			{{form.nome_fantasia.label_tag}}
+			{{form.nome_fantasia}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.cpf_cnpj.label_tag}}
+			{{form.cpf_cnpj}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.segmento.label_tag}}
+			{{form.segmento}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.porte.label_tag}}
+			{{form.porte}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.contato.label_tag}}
+			{{form.contato}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.email.label_tag}}
+			{{form.email}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.cargo_contato.label_tag}}
+			{{form.cargo_contato}}
+		</div>
+		<div class="col-md-5 col-sm-5">
+			{{form.endereco.label_tag}}
+			{{form.endereco}}
+		</div>
+
+		<div class="col-md-5 col-sm-5">
+			{{form.imagem_loja.label_tag}}
+			{{form.imagem_loja}}
+		</div>
+
+		<div class="col-md-12 col-sm-12">
+			{{form.observacao.label_tag}}
+			{{form.observacao}}
+		</div>
+		
+		<div class="col-md-5 col-sm-5">
+			{{form.colaborador.label_tag}}
+			{{form.colaborador}}
+		</div>
+
+		<div class="col-md-10">
+			<hr>
+			<button type="submit" class="btn btn-success">Enviar</button>
+			<button type="reset" class="btn btn-danger">Cancelar</button>
+		</div>	
+	</form>
+{% endblock %}

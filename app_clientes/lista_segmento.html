@@ -1,0 +1,33 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	{% for seg in segmento.object_list %}	
+    
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-block">
+	        <a href="/item_segmento/{{segmento.id}}" class="btn btn-primary">{{ seg.nome|upper }}</a> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <br />
+    
+    {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if segmento.has_previous %}
+            <a href="?page={{ segmento.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ segmento.number }} de {{ segmento.paginator.num_pages }}.
+        </span>
+
+        {% if segmento.has_next %}
+            <a href="?page={{ segmento.next_page_number }}">próxima</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

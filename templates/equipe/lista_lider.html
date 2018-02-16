@@ -1,0 +1,33 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	{% for lider in lideres.object_list %}	
+    
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-block">
+	        <a href="/item_lideres/{{lider.id}}" class="btn btn-primary">{% for i in lider.lideres.values %}{{ i.first_name|upper }} {{ i.last_name|upper }}{% endfor %}</a> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <br />
+    
+    {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if lideres.has_previous %}
+            <a href="?page={{ lideres.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ lideres.number }} de {{ lideres.paginator.num_pages }}.
+        </span>
+
+        {% if lideres.has_next %}
+            <a href="?page={{ lideres.next_page_number }}">próxima</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}

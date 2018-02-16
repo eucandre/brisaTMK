@@ -1,0 +1,33 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	{% for grupo in grupos.object_list %}	
+    
+	<div class="row">
+	  <div class="col-sm-6">
+	    <div class="card">
+	      <div class="card-block">
+	        <a href="/item_grupo/{{grupo.id}}" class="btn btn-primary">{{ grupo.nome_fantasia|upper }}</a><small> {{grupo.email}}</small> 
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+    <br />
+    
+    {% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if grupos.has_previous %}
+            <a href="?page={{ grupos.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ grupos.number }} de {{ grupos.paginator.num_pages }}.
+        </span>
+
+        {% if grupos.has_next %}
+            <a href="?page={{ grupos.next_page_number }}">próxima</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
