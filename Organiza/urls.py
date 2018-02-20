@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^Criapromotores',Cria_promotores),
     url(r'^Criaequipe',Cria_equipe),
     url(r'^CriaJornada',Cria_jornada),
+    url(r'^deleta_usuario/(?P<nr_item>\d+)/$', delete_usuario),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
     url(r'^chat',chat),

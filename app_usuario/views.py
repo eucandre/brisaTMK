@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from .forms import *
 from .models import *
 from app_usuario.filter import *
+
 
 def Cria_usuario(request):
 	if request.method == "POST":
@@ -42,3 +43,10 @@ def edita_usuario(request, nr_item):
 	else:
 		form = FormUser(instance=item)
 	return render(request, "usuarios/cadastro_usuario.html",{"form":form})
+
+def delete_usuario(request, nr_item):
+	usuario = get_object_or_404(User, pk=nr_item)
+	usuario.delete()
+	return redirect("/lista_usuarios/")
+	
+	return render(request, "usuarios/lista_usuarios.html")

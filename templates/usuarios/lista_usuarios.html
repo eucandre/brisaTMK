@@ -36,8 +36,9 @@
                 <td>{{usuario.telphone}}</td>
                 <td>{{usuario.office}}</td>
                 <td>
-                    <button type="button" class="btn btn-default btn-sm">
-                      <span class="glyphicon glyphicon-trash" style="color: #d4bb77;"></span> Excluir 
+                    
+                    <button type="button" class="btn btn-default btn-sm"><a href="deleta_usuario/{{usuario.id}}">
+                      <span class="glyphicon glyphicon-trash" style="color: #d4bb77;"></span><a href="/deleta_usuario/{{usuario.id}}">Excluir</a> 
                     </button>
                 </td>
           </tr>
