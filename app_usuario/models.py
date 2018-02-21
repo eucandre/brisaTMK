@@ -14,6 +14,10 @@ from app_perfil.models import *
 
 PROPIEDADE = ((u'Empresa', 'Empresa'), (u'Colaborador','Colaborador'), (u'Terceiros', 'Terceiros'))
 
+PERFIL = ((u'Administrador do Sistema','Administrador do Sistema'),(u'Lider da Equipe','Lider da Equipe'),
+          (u'Promotor de Vendas','Promotor de Vendas'))
+
+
 class UserManager(BaseUserManager):
 
     def _create_user(self, username, email, password, is_staff, is_superuser, **extra_fields):
@@ -58,7 +62,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     cpf = models.CharField(_('CPF'),max_length=11)
     birt_day = models.DateField(_('Nascmimento'), default=timezone.now)
     office = models.CharField(_('Cargo'),max_length=150)
-    # profile = models.Foreignkey(_('Perfil do Colaborador'),Perfil)
+    profile = models.CharField(_('Perfil do Colaborador'),max_length=100, choices=PERFIL)
     property_telphone = models.CharField(_('Propriedade do telefone'),max_length=150,choices=PROPIEDADE)
     is_staff = models.BooleanField(_('staff status'), default=False,
         help_text=_('Designates whether the user can log into this admin site.'))

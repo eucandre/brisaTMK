@@ -2,6 +2,9 @@ from django import forms
 from .models import *
 
 PROPIEDADE = ((u'Empresa', 'Empresa'), (u'Colaborador','Colaborador'), (u'Terceiros', 'Terceiros'))
+PERFIL = ((u'Administrador do Sistema','Administrador do Sistema'),(u'Lider da Equipe','Lider da Equipe'),
+          (u'Promotor de Vendas','Promotor de Vendas'))
+
 
 class FormUser(forms.ModelForm):
 	username = forms.CharField(label="Nome de Usuario",max_length=15, widget=forms.TextInput(attrs={"class":"form-control"}))
@@ -12,6 +15,7 @@ class FormUser(forms.ModelForm):
 	telphone = forms.CharField(label="Telefone", max_length=10,widget=forms.TextInput(attrs={"class":"form-control"}))
 	property_telphone = forms.ChoiceField(label="Propriedade do Telefone",choices=PROPIEDADE, widget=forms.Select(attrs={"class":"form-control"}))
 	office = forms.CharField(label="Cargo", max_length=150,widget=forms.TextInput(attrs={"class":"form-control"}))
+	profile = forms.MultipleChoiceField(label='Pefil',choices=PERFIL, widget= forms.CheckboxSelectMultiple(attrs={'class':'checkbox'}))
 	birt_day = forms.DateField(label="Data de Nascimento",widget=forms.TextInput(attrs={"type":"date", "class":"form-control"}))
 	date_joined = forms.DateField(label="Data de Registro",widget=forms.TextInput(attrs={"type":"date", "class":"form-control"}))
 	password = forms.CharField(label="Senha", max_length=10,widget=forms.PasswordInput(attrs={"class":"form-control"}))
