@@ -3,64 +3,7 @@
 <div class="col-md-9">
 	<form action="" method="post" >
 		{% csrf_token %}
-		<!-- {{form.as_p}} -->
-		<div class="col-md-10">
-			{{form.username.label_tag}}
-			{{form.username}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.first_name.label_tag}}
-			{{form.first_name}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.last_name.label_tag}}
-			{{form.last_name}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.cpf.label_tag}}
-			{{form.cpf}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.office.label_tag}}
-			{{form.office}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.email.label_tag}}
-			{{form.email}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.telphone.label_tag}}
-			{{form.telphone}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.property_telphone.label_tag}}
-			{{form.property_telphone}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.date_joined.label_tag}}
-			{{form.date_joined}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.birt_day.label_tag}}
-			{{form.birt_day}}
-		</div>
-		
-		<div class="col-md-5 col-sm-5">
-			{{form.is_staff.label_tag}}
-			{{form.is_staff}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.is_active.label_tag}}
-			{{form.is_active}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.password.label_tag}}
-			{{form.password}}
-		</div>
-		<div class="col-md-5 col-sm-5">
-			{{form.profile.label_tag}}
-			{{form.profile}}
-		</div>
+		{{form.as_p}}
 		<div class="col-md-10">
 			<hr>
 			<button type="submit" class="btn btn-success">Enviar</button>

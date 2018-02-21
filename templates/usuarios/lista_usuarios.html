@@ -20,17 +20,17 @@
         
         
     </div>
-      <table class="table">
-        <thead>
-          <tr style="color: #046350;">
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Cargo</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for usuario in search.qs %}   
-          <tr>
+          <table class="table">
+            <thead>
+              <tr style="color: #046350;">
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Cargo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for usuario in search.qs %}   
+                <tr>
             
                 <td><a href="/item_usuario/{{usuario.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ usuario.username|upper }}</a></td>
                 <td>{{usuario.telphone}}</td>
