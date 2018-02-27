@@ -1,5 +1,9 @@
 {% extends 'base2.html' %}
 {% block  conteudo %}
     <h1> Módulos prontos para trabalho</h1>
-    	
+		<form method="post" action="">
+			{%csrf_token%}
+			{{form.as_p}}
+			<button type="submit">Enviar</button>
+		</form>    	
 {% endblock %}

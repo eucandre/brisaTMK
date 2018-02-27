@@ -14,7 +14,7 @@ SECRET_KEY = '4dxki7$2keb7aa!2_uv8)3f1c-qi@g&5a_$+llu8s$s)b39xv3'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+AUTH_USER_MODEL = 'app_colaborador.User'
 
 # Application definition
 
@@ -26,12 +26,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_usuario',
-    'app_perfil',
-    'app_equipe',
-    'app_empresa',
-    'app_clientes',
-    'chat',
+    'app_colaborador',    
     'django_filters',
     
     'allauth',
@@ -189,7 +184,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
-AUTH_USER_MODEL = 'app_usuario.User'
+#AUTH_USER_MODEL = 'app_usuario.User'
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'

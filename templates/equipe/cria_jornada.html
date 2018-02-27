@@ -2,22 +2,22 @@
 {% block conteudo %}
 	<form action="" method="post" >
 		{% csrf_token %}
-		<div class="col-md-10">
+		<!-- <div class="col-md-10">
 			{{ form.nome.label_tag }}
 			{{ form.nome }}
 		</div>
 		<div class="col-md-5">
 			{{form.jornada_equipe.label_tag}}
 			{{form.jornada_equipe}}
-		</div>
-		<div class="col-md-5">
+		</div> -->
+		<div class="col-md-5" style="display: inline-block;">
 			{{form.dias_jornada.label_tag}}
 			{{form.dias_jornada}}
 		</div>
-		<div class="col-md-4">
+		<!-- <div class="col-md-4">
 			{{form.periodo.label_tag}}
 			{{form.periodo}}
-		</div>
+		</div> -->
 		<div class="col-md-3">
 			{{form.de.label_tag}}
 			{{form.de}}
@@ -25,6 +25,14 @@
 		<div class="col-md-3">
 			{{form.ate.label_tag}}
 			{{form.ate}}
+		</div>
+		<div class="col-md-3">
+			{{form.inicio_almoco.label_tag}}
+			{{form.inicio_almoco}}
+		</div>
+		<div class="col-md-3">
+			{{form.fim_almoco.label_tag}}
+			{{form.fim_almoco}}
 		</div>
 		<div class="col-md-10">
 			<hr>
