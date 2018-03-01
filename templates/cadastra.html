@@ -1,0 +1,122 @@
+{%extends 'base2.html'%}
+{%block conteudo%}
+	<form action="" method="post">
+	{%csrf_token%}
+	
+  <h2>Colaborador</h2>
+  
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" data-parent="#accordion" href="#collapse1">Dados Gerais</button>
+  <button type="button" class="btn btn-primary" data-toggle="collapse"  data-parent="#accordion" href="#collapse2" data-target="#jornada">Jornada de Trabalho</button>
+  <button type="button" class="btn btn-success" data-toggle="collapse" data-parent="#accordion" href="#collapse3" data-target="#empresa">Dados na Empresa</button>
+
+  <div class="panel-group" id="accordion">
+	  <div id="empresa" class="collapse col-md-12">
+	  	<div class="col-md-5">
+	  	  {{form.matricula.label_tag}}
+	    	{{form.matricula}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.data_admissao.label_tag}}
+	    	{{form.data_admissao}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.tipo_remuneracao.label_tag}}
+	    	{{form.tipo_remuneracao}}
+	  	</div>
+
+	  </div>
+
+	  <div id="jornada" class="collapse col-md-12">
+	  	<div class="col-md-5">
+	  	  {{form.dias_jornada.label_tag}}
+	    	{{form.dias_jornada}}
+	  	</div>
+	  	<div class="col-md-5">
+	  		<h3>Intervalo de Horas</h3>
+		  	<div class="col-md-5">
+		  	  {{form.de.label_tag}}
+		    	{{form.de}}
+		  	</div>
+		  	<div class="col-md-5">
+		  	  {{form.ate.label_tag}}
+		    	{{form.ate}}
+		  	</div>
+		  </div>
+		  <div class="col-md-5">
+		  	<h3>Intervalo de Almoço</h3>
+		  	<div class="col-md-5">
+		  	  {{form.inica_almoco.label_tag}}
+		    	{{form.inica_almoco}}
+		  	</div>
+		  	<div class="col-md-5">
+		  	  {{form.fim_almoco.label_tag}}
+		    	{{form.fim_almoco}}
+		  	</div>
+		  </div>
+	  </div>
+	  <br>
+
+	  <div id="demo" class="collapse col-md-12">
+	    <div class="col-md-10">
+	  	  {{form.nome.label_tag}}
+	    	{{form.nome}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.username.label_tag}}
+	    	{{form.username}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.cpf.label_tag}}
+	    	{{form.cpf}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.data_nascimento.label_tag}}
+	    	{{form.data_nascimento}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.perfil.label_tag}}
+	    	{{form.perfil}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.cargo.label_tag}}
+	    	{{form.cargo}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.telefone.label_tag}}
+	    	{{form.telefone}}
+	  	</div>
+	  	<div class="col-md-5">
+	  	  {{form.propiedade.label_tag}}
+	    	{{form.propiedade}}
+	  	</div>
+	  	<div class="col-md-5">
+		  	<p><label for="id_password1">Senha:</label> <input class="form-control" type="password" name="password1" required id="id_password1" /> <span class="helptext"><ul><li>Sua senha não pode ser tão parecida com suas outras informações pessoais.</li><li>Sua senha precisa conter pelo menos 8 caracteres.</li><li>Sua senha não pode ser uma senha habitualmente utilizada.</li><li>Sua senha não pode ser inteiramente numérica.</li></ul></span></p>
+				<p><label for="id_password2">Confirmação de senha:</label> <input class="form-control" type="password" name="password2" required id="id_password2" /> <span class="helptext">Informe a mesma senha informada anteriormente, para verificação.</span></p>
+			</div>
+	  </div>
+	  <br>
+	</div>  
+	<!-- {{form.as_p}} -->
+	<!-- <div class="col-md-10">
+		{{form.nome.label_tag}}
+		{{form.nome}} 
+	</div>
+	<div class="col-md-5">
+		{{form.cpf.label_tag}}
+		{{form.cpf}} 
+	</div>
+	<div class="col-md-10">
+		{{form.username.label_tag}}
+		{{form.username}} 
+	</div>
+	<div class="col-md-10">
+		{{form.password.label_tag}}
+		{{form.password}} 
+	</div> -->
+	<br>
+	<div class="col-md-12">
+		<br>
+		<button type="submit">ENVIAR</button>
+	</div>
+	</form>
+{%endblock%}

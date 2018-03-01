@@ -5,7 +5,8 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth import views as auth_views
-from app_colaborador.views import *
+from app_usuario.views import *
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 #    url(r'^$', cria_colaborador),
@@ -29,8 +30,9 @@ urlpatterns = [
     # url(r'^Criaequipe',Cria_equipe),
     # url(r'^CriaJornada',Cria_jornada),
     # url(r'^deleta_usuario/(?P<nr_item>\d+)/$', delete_usuario),
+    url(r'^cadastrar', Cria_Usuario),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
     #url(r'^chat',chat),
-    url(r'^accounts/', include('allauth.urls')),
+    #url(r'^accounts/', include('allauth.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
