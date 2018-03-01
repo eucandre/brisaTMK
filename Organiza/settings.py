@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #'app_colaborador',    
     'app_usuario',
+    'app_equipe',
     'django_filters',
     'multiselectfield',
     # 'allauth',
