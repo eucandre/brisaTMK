@@ -4,7 +4,7 @@ from .models import *
 
 class FormLideres(forms.ModelForm):
 	
-	lider = forms.ModelChoiceField(queryset = Lideres.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
+	lider = forms.ModelChoiceField(queryset = Usuario.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
 
 	class Meta:
 		model = Lideres
@@ -12,7 +12,7 @@ class FormLideres(forms.ModelForm):
 
 class FormColaboradores(forms.ModelForm):
 
-	colaborador = forms.ModelChoiceField(queryset = Colaboradores.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
+	colaborador = forms.ModelChoiceField(queryset = Usuario.objects.all(), widget=forms.Select(attrs={'class':'form-control'}))
 
 	class Meta:
 		model = Colaboradores

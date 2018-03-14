@@ -1,5 +1,6 @@
 {% extends "base2.html" %}
 {% block conteudo %}
+
 	
     <div class="col-md-12 col-lg-12">
         <div class="pull-right"><a href="/CriaUsuario/"><i class="material-icons">&#xe7f0;</i></a></div>
@@ -10,15 +11,7 @@
         <form method="get">
             {{search.form.as_p}}
             <button type="submit" class="btn btn-success">Enviar</button>
-            <button type="reset" class="btn btn-danger">Limpar</button>
-            <ul>
-          
-          <!-- {% for user in search.qs %}
-            <li>{{ user.username }} - {{ user.get_full_name }}</li>
-          {% endfor %} -->
-        </ul>
-        
-        
+            <button type="reset" class="btn btn-danger">Limpar</button>        
     </div>
           <table class="table">
             <thead>
@@ -32,9 +25,9 @@
                 {% for usuario in search.qs %}   
                 <tr>
             
-                <td><a href="/item_usuario/{{usuario.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ usuario.username|upper }}</a></td>
-                <td>{{usuario.telphone}}</td>
-                <td>{{usuario.office}}</td>
+                <td><a href="/item_usuario/{{usuario.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ usuario.nome|upper }}</a></td>
+                <td>{{usuario.telefone}}</td>
+                <td>{{usuario.cargo}}</td>
                 <td>
                     
                     <button type="button" class="btn btn-default btn-sm"><a href="deleta_usuario/{{usuario.id}}">

@@ -1,4 +1,58 @@
 {% extends "base2.html" %}
 {% block conteudo %}
-	{{item.nome_fantasia}} 
+	<h1>{{item.nome_fantasia}} </h1>
+	<div class="col-md-9 col-sm-9">	
+		<span> do ramo {{item.segmento}}</span>
+	</div>
+	<div class="col-md-9 col-sm-9" style="width: 100%;">
+		<div class="table-responsive">
+			<table class="table">
+		    <thead>
+		      <tr style="color: #046350;">
+		        <th>Cpf/Cnpj</th>
+		        <th>Porte do Cliente</th>    
+		         <th>TeleFone</th>    
+		         <th>e-mail</th> 
+		         <th>Pessoa Para Contato</th>    
+		         <th>Cargo da Pessoa Para Contato</th>    
+		         <th>Imagem </th>    
+		         <th>Colaborador Responsável </th>    
+		       </tr>
+
+		      </thead>
+		        <tbody>
+		       
+		       <tr>
+		    
+		        <td>{{ item.cpf_cnpj|upper }}</td>
+		        
+		        <td>{{ item.porte_cliente|upper }}</td>	
+		        <td>{{ item.telefone|upper }}</td>
+		        <td>{{ item.email }}</td>
+		        <td>{{ item.contato }}</td>
+		        <td>{{ item.cargo_contato }}</td>
+		        <td><a href="{{ item.imagem_loja.url }}"><img src="{{ item.imagem_loja.url }}" width="100"></a></td>
+		        <td>{{ item.colaborador_responsavel }}</td>
+
+		      </tr>
+		      
+		    </tbody>
+		  </table>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-6">
+  	<blockquote>{{item.observacoes}}</blockquote>
+	</div>
+
+	<div class="col-sm-6 col-md-6">
+		{% load easy_maps_tags cache %}
+
+		<!-- Default map with 300x400 dimensions -->
+		{% cache 600 my_map item.endereco %}
+    
+		{% endcache %}
+		<!-- {% easy_map 'Rua desesseis de setembro,388, levada, maceió' 300 400 %} -->
+		<!-- {{item.endereco}} -->
+	</div>
+
 {% endblock %}

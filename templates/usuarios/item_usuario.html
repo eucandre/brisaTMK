@@ -1,4 +1,80 @@
 {% extends "base2.html" %}
 {% block conteudo %}
-	{{item.first_name}} {{item.last_name}}
+	  <h2>Colaborador {{item}}</h2>
+  
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" data-parent="#accordion" href="#collapse1">Dados Gerais</button>
+
+  <button type="button" class="btn btn-primary" data-toggle="collapse"  data-parent="#accordion" href="#collapse2" data-target="#jornada">Jornada de Trabalho</button>
+
+  <button type="button" class="btn btn-success" data-toggle="collapse" data-parent="#accordion" href="#collapse3" data-target="#empresa">Dados na Empresa</button>
+
+	<div class="panel-group" id="accordion">
+		<div id="demo" class="collapse col-md-12">
+			<table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th>Nome</th>
+		        <th>Cpf</th>
+		        <th>Data de Nascimento</th>
+		        <th>Perfil</th>
+		        <th>Cargo</th>
+		        <th>Telefone</th>
+		        <th>Propriedade do Telefone</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>{{item.nome}}</td>
+		        <td>{{item.cpf}}</td>
+		        <td>{{item.data_nascimento}}</td>
+		        <td>{{item.perfil}}</td>
+		        <td>{{item.cargo}}</td>
+		        <td>{{item.telefone}}</td>
+		        <td>{{item.propiedade}}</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</div>
+
+		<div id="jornada" class="collapse col-md-12">
+			<table class="table table-striped">
+	  		<thead>
+			      <tr>
+			        <th>Dias</th>
+			        <th>Início das Atividade</th>
+			        <th>Fim das Atividade</th>
+			        <th>Iício do Horário de Almoço</th>
+			        <th>Fim do Hrário de Almoço</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>{{item.dias_jornada}}</td>
+			        <td>{{item.de}}</td>
+			        <td>{{item.ate}}</td>
+			        <td>{{item.inica_almoco}}</td>
+			        <td>{{item.fim_almoco}}</td>
+			      </tr>
+			    </tbody>
+			  </table>	
+  	</div>
+  	<div id="empresa" class="collapse col-md-12">
+  		<table class="table table-striped">
+  			<thead>
+		      <tr>
+		        <th>Matricula</th>
+		        <th>Data de Admissão</th>
+		        <th>Tipo de Remuneração</th>
+		      </tr>
+			  </thead>
+		  	<tbody>
+		      <tr>
+		        <td>{{item.matricula}}</td>
+		        <td>{{item.data_admissao}}</td>
+		        <td>{{item.tipo_remuneracao}}</td>
+		      </tr>
+			  </tbody>
+  		</table>
+  	</div>
+	</div>	
 {% endblock %}

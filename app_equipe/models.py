@@ -6,14 +6,14 @@ from app_usuario.models import *
 
 class Lideres(models.Model):
 	
-	lider = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
+	lider = models.ForeignKey(Usuario)
 
 	def __unicode__(self):
 		return self.lider.__str__()
 
 class Colaboradores(models.Model):
 	
-	colaborador =	models.ForeignKey(Usuario, on_delete=models.CASCADE,)	
+	colaborador =	models.ForeignKey(Usuario)	
 
 	def __unicode__(self):
 		return self.colaborador.__str__()

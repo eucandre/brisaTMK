@@ -1,0 +1,17 @@
+{% extends "base2.html" %}
+{% block conteudo %}
+	<h1>Equipe {{item.nome}}</h1>
+	{%for l in item.lideres.all %}
+		<h3>lider</h3>
+				<a href="/item_lider/{{l.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{l|upper}}</a>
+
+	{%endfor%}
+
+	{%for c in item.colaboradores.all %}
+		<h3>Colaborador</h3>
+				<a href="/item_colaborador/{{c.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{c|upper}}</a>
+
+	{%endfor%}
+	
+
+{% endblock %}

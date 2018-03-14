@@ -29,8 +29,11 @@ INSTALLED_APPS = [
     #'app_colaborador',    
     'app_usuario',
     'app_equipe',
+    'app_cliente',
     'django_filters',
     'multiselectfield',
+    'gmaps',
+    'easy_maps',
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
@@ -138,9 +141,9 @@ WSGI_APPLICATION = 'Organiza.wsgi.application'
 
 EASY_MAPS_GOOGLE_MAPS_API_KEY = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ___0123456789'
 EASY_MAPS_CENTER = (-41.3, 32)
+# EASY_MAPS_GEOCODE = 'example.custom_geocode'
 
-
-GEOPOSITION_GOOGLE_MAPS_API_KEY = "AIzaSyDiFg_fDtCIkggRQwbE1jR_Tt1oGRW59bw"
+# GOOGLE_API_KEY = "AIzaSyDiFg_fDtCIkggRQwbE1jR_Tt1oGRW59bw"
 
 
 
