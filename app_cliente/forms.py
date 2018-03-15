@@ -28,3 +28,9 @@ class FormCliente(forms.ModelForm):
 		fields = ('nome_fantasia','cpf_cnpj','segmento','porte_cliente','telefone','email','contato', 'cargo_contato','endereco','observacoes',
 		 'imagem_loja','colaborador_responsavel')
 
+class FormGrupo(forms.ModelForm):
+	nome = forms.CharField(max_length = 150, widget= forms.TextInput(attrs={'class':'form-control'}))
+	clientes = forms.ModelMultipleChoiceField(queryset = Cliente.objects.all(), widget = forms.SelectMultiple(attrs={'class':'form-control'}))
+	class Meta:
+		model = Grupo
+		fields = ('nome','clientes')

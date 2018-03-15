@@ -1,4 +1,9 @@
 {% extends "base2.html" %}
 {% block conteudo %}
-	{{item.nome_grupo}} 
+	<h1>{{item.nome}} </h1>
+	<ul>
+		{% for i in item.clientes.all %}
+		<li>{{i}}</li>
+		{%endfor%}
+	</ul>
 {% endblock %}

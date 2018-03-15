@@ -35,3 +35,9 @@ class Cliente(models.Model):
 	class Meta:
 		verbose_name_plural = 'CLientes do nosso Sistema'
 
+class Grupo(models.Model):
+	nome = models.CharField(max_length = 150)
+	clientes = models.ManyToManyField(Cliente)
+
+	def __unicode__(self):
+		return self.nome.__str__()

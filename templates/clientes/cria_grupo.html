@@ -3,8 +3,8 @@
 	<form method="post" action="">
 		{% csrf_token %}
 		<div class="col-md-10 col-sm-10">
-			{{form.nome_grupo.label_tag}}
-			{{form.nome_grupo}}
+			{{form.nome.label_tag}}
+			{{form.nome}}
 		</div>
 		<div class="col-md-10 col-sm-10">
 			{{form.clientes.label_tag}}

@@ -45,14 +45,13 @@
 	</div>
 
 	<div class="col-sm-6 col-md-6">
+		{{item.endereco}}
 		{% load easy_maps_tags cache %}
 
-		<!-- Default map with 300x400 dimensions -->
 		{% cache 600 my_map item.endereco %}
-    
+		    {% easy_map item.endereco 300 400 %}
 		{% endcache %}
-		<!-- {% easy_map 'Rua desesseis de setembro,388, levada, maceió' 300 400 %} -->
-		<!-- {{item.endereco}} -->
+
 	</div>
 
 {% endblock %}

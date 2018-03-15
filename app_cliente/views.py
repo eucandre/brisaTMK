@@ -10,11 +10,24 @@ def Cria_segmento(request):
 	if request.method == 'POST':
 		form = FormSegmento(request.POST)
 		if form.is_valid():
-			form.save()
-			
+			form.save()			
 	else:
 		form = FormSegmento()
 	return render(request, 'clientes/cria_segmento.html',{'form':form})
+
+def lista_segmento(request):
+	segmento = Segmento.objects.all()
+	paginacao_segmentos = Paginator(segmento,5)
+	segmento_filter = SegmentoFilter(request.GET, queryset=segmento)
+
+	try:
+		page = int(request.GET.get('page', '1'))
+		lista = paginacao_segmentos.page(page)
+	except (EmptyPage, InvalidPage):
+		lista = paginator.page(paginator.num_pages)	
+
+	return render(request,'clientes/lista_segmento.html', {"segmentos":lista, 'search':segmento_filter})
+
 
 
 def Cria_Cliente(request):
@@ -56,3 +69,41 @@ def lista_clientes(request):
 
 	return render(request,'clientes/lista_clientes.html', {"clientes":lista, 'search':cliente_filter})
 
+def Cria_Grupo(request):
+	if request.method == 'POST':
+		form = FormGrupo(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+	else:
+		form = FormGrupo()
+	return render(request, 'clientes/cria_grupo.html',{'form':form})
+
+def lista_grupo(request):
+	grupo = Grupo.objects.all()
+	paginacao_grupos = Paginator(grupo,5)
+	grupo_filter = GrupoFilter(request.GET, queryset=grupo)
+
+	try:
+		page = int(request.GET.get('page', '1'))
+		lista = paginacao_grupos.page(page)
+	except (EmptyPage, InvalidPage):
+		lista = paginator.page(paginator.num_pages)	
+
+	return render(request,'clientes/lista_grupos.html', {"grupos":lista, 'search':grupo_filter})
+
+def edita_grupo(request, nr_item):
+	item = Grupo.objects.get(pk = nr_item)
+	if request.method == 'POST':
+		form = FormGrupo(request.POST, request.FILES, instance= item)
+		if form.is_valid():
+			form.save()
+	else:
+		form = FormGrupo(instance= item)
+	return render(request, 'clientes/cria_grupo.html',{'form':form})
+
+def detalha_Grupo(request, nr_item):
+	try:
+		item = Grupo.objects.get(pk=nr_item)
+	except:
+		raise Http404('Sem Registro!')
+	return render(request, "clientes/item_grupos.html", {'item': item})
