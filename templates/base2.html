@@ -194,7 +194,8 @@
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-user"> {{user.first_name}} {{user.last_name}}</span> </a>
+            <a class="navbar-brand" href="#"> <span class="glyphicon glyphicon-user"> {{user}} {% for i in user.groups.all %}
+          é usuário do Grupo {{ i }}{% endfor %}</span> </a>
           </div>
           <ul class="nav navbar-nav navbar-right">
             {% if not user.is_authenticated %}
@@ -206,8 +207,10 @@
         </div>
       </nav>
       <hr>
-                  
-
+                   
+        <!-- {{user.groups.all}} -->
+        
+        <!-- {{user.first_name}} -->
         {% block conteudo %}
 
         {% endblock %}

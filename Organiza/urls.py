@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', Show),
     # url(r'^CriaUsuario',Cria_usuario),
+    url(r'^CriaUsuario', Cria_Usuario),
     url(r'^lista_usuarios',lista_usuarios),
     url(r'^edita_usuario/(?P<nr_item>\d+)/$', edita_usuario),
     url(r'^item_usuario/(?P<nr_item>\d+)/$', detalha_usuario),
@@ -50,7 +51,7 @@ urlpatterns = [
     url(r'^edita_equipe/(?P<nr_item>\d+)/$', edita_equipe),
     url(r'^deleta_equipe/(?P<nr_item>\d+)/$', deleta_equipe),
 
-    url(r'^CriaUsuario', Cria_Usuario),
+    
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'template_name': 'login.html'}, name='logout'),
     #url(r'^chat',chat),
