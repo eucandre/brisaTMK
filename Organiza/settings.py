@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     'app_cliente',
     'django_filters',
     'multiselectfield',
-    'gmaps',
+    #'gmaps',
     'easy_maps',
     # 'allauth',
     # 'allauth.account',

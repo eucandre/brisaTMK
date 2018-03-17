@@ -1,7 +1,13 @@
 {% extends "base2.html" %}
 {% block conteudo %}
-	  <h2>Colaborador {{item}}</h2>
+	  
+	<div class="col-md-12">
+    <div class="col-md-12 col-lg-12">
+    	<div class="pull-right"><a href="/CriaUsuario/" title="Criar novo usuário" alt="Criar novo usuário"><i class="material-icons">&#xe7f0;</i></a> <a href="/edita_usuario/{{item.id}}/" title="Editar usuário"><i class="material-icons">&#xE869;</i></a></div>
+    	<!-- <div class="col-md-12 col-lg-12"></div> -->
+  	</div>
   
+  </div> 
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" data-parent="#accordion" href="#collapse1">Dados Gerais</button>
 
   <button type="button" class="btn btn-primary" data-toggle="collapse"  data-parent="#accordion" href="#collapse2" data-target="#jornada">Jornada de Trabalho</button>

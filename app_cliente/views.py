@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from .forms import *
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from .filter import *
 
 def Cria_segmento(request):
@@ -27,8 +29,6 @@ def lista_segmento(request):
 		lista = paginator.page(paginator.num_pages)	
 
 	return render(request,'clientes/lista_segmento.html', {"segmentos":lista, 'search':segmento_filter})
-
-
 
 def Cria_Cliente(request):
 	if request.method == 'POST':
@@ -107,3 +107,15 @@ def detalha_Grupo(request, nr_item):
 	except:
 		raise Http404('Sem Registro!')
 	return render(request, "clientes/item_grupos.html", {'item': item})
+
+@login_required
+def deleta_cliente(request, nr_item):
+  	doc = get_object_or_404(Cliente, pk=nr_item)
+  	doc.delete()
+  	return redirect("/lista_clientes/")
+
+@login_required
+def deleta_grupo(request, nr_item):
+  	doc = get_object_or_404(Grupo, pk=nr_item)
+  	doc.delete()
+  	return redirect("/lista_grupos/")

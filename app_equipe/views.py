@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
 from .filter import *
@@ -68,3 +70,19 @@ def lista_equipe(request):
 		lista = paginator.page(paginator.num_pages)	
 
 	return render(request,'equipe/lista_equipe.html', {"equipes":lista, 'search':equipe_filter})
+
+def edita_equipe(request, nr_item):
+	item = Equipe.objects.get(pk=nr_item)
+	if request.method == 'POST':
+		form = FormEquipe(request.POST, instance= item)
+		if form.is_valid():
+			form.save()
+	else:
+		form = FormEquipe(instance = item)
+	return render(request, 'equipe/cria_equipe.html',{'form':form})
+
+@login_required
+def deleta_equipe(request, nr_item):
+  	doc = get_object_or_404(Equipe, pk=nr_item)
+  	doc.delete()
+  	return redirect("/lista_equipe/")

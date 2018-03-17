@@ -1,6 +1,10 @@
 {% extends "base2.html" %}
 {% block conteudo %}
+<div class="pull-right"><a href="/CriaGrupo/"><i class="material-icons">&#xe7f0;</i></a>
+	<a href="/edita_grupo/{{item.id}}/" title="Editar Equipe"><i class="material-icons">&#xE869;</i></a>
+</div>
 	<h1>{{item.nome}} </h1>
+	<h3>Lista de Clientes do Grupo</h3>
 	<ul>
 		{% for i in item.clientes.all %}
 		<li>{{i}}</li>

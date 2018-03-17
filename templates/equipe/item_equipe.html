@@ -1,6 +1,10 @@
 {% extends "base2.html" %}
 {% block conteudo %}
 	<h1>Equipe {{item.nome}}</h1>
+	<div class="col-md-12 col-lg-12">
+    	<div class="pull-right"><a href="/Criaequipe/" title="Criar nova Equipe" alt="Criar nova Equipe"><i class="material-icons">&#xe7f0;</i></a> <a href="/edita_usuario/{{item.id}}/" title="Editar Equipe"><i class="material-icons">&#xE869;</i></a></div>
+    	<!-- <div class="col-md-12 col-lg-12"></div> -->
+  	</div>
 	{%for l in item.lideres.all %}
 		<h3>lider</h3>
 				<a href="/item_lider/{{l.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{l|upper}}</a>
