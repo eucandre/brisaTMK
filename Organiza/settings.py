@@ -13,7 +13,7 @@ SECRET_KEY = '4dxki7$2keb7aa!2_uv8)3f1c-qi@g&5a_$+llu8s$s)b39xv3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'brisa.pythonanywhere.com/',u'127.0.0.1']
 #AUTH_USER_MODEL = 'app_colaborador.Colaborador'
 
 # Application definition
