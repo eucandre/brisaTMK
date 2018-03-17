@@ -3,7 +3,7 @@
     
     <div class="col-md-12 col-lg-12">
         <div class="pull-right"><a href="/CriaUsuario/"><i class="material-icons">&#xe7f0;</i></a></div>
-        <h1 style="color:#046350;">Lideres</h1>
+        <h1 style="color:#046350;">Promotores</h1>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Pesquisa</button>
         <br>          
         <div class="col-md-4 col-lg-4 collapse" id="demo">
@@ -20,15 +20,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                {% for lider in search.qs %}   
+                {% for colaborador in search.qs %}   
                 <tr>
             
-                <td><a href="/item_equipe/{{equipe.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ lider.nome|upper }}</a></td>
+                <td><a href="/item_equipe/{{equipe.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ colaborador.nome|upper }}</a></td>
                 
                 <td>
                     
-                    <button type="button" class="btn btn-default btn-sm"><a href="deleta_lider/{{lider.id}}">
-                      <span class="glyphicon glyphicon-trash" style="color: #d4bb77;"></span><a href="/deleta_lider/{{lider.id}}">Excluir</a> 
+                    <button type="button" class="btn btn-default btn-sm"><a href="deleta_colaborador/{{colaborador.id}}">
+                      <span class="glyphicon glyphicon-trash" style="color: #d4bb77;"></span><a href="/deleta_colaborador/{{colaborador.id}}">Excluir</a> 
                     </button>
                 </td>
               </tr>
@@ -42,16 +42,16 @@
 
 <div class="pagination">
     <span class="step-links">
-        {% if lider.has_previous %}
-            <a href="?page={{ lider.previous_page_number }}">anterior</a>
+        {% if colaborador.has_previous %}
+            <a href="?page={{ colaborador.previous_page_number }}">anterior</a>
         {% endif %}
 
         <span class="current">
-            Página {{ lider.number }} de {{ lider.paginator.num_pages }}.
+            Página {{ colaborador.number }} de {{ colaborador.paginator.num_pages }}.
         </span>
 
-        {% if lider.has_next %}
-            <a href="?page={{ lider.next_page_number }}">próxima</a>
+        {% if colaborador.has_next %}
+            <a href="?page={{ colaborador.next_page_number }}">próxima</a>
         {% endif %}
     </span>
 </div>

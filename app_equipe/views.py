@@ -18,6 +18,32 @@ def Cria_Lider(request):
 		form = FormLideres()
 	return render(request, 'equipe/cria_lideres.html',{'form':form})
 
+def lista_lideres(request):
+	lider = Lideres.objects.all()
+	paginacao_lideres = Paginator(lider,5)
+	lider_filter = LideresFilter(request.GET, queryset=lider)
+
+	try:
+		page = int(request.GET.get('page', '1'))
+		lista = paginacao_lideres.page(page)
+	except (EmptyPage, InvalidPage):
+		lista = paginator.page(paginator.num_pages)	
+
+	return render(request,'equipe/lista_lider.html', {"lider":lista, 'search':lider_filter})
+
+def lista_colaborador(request):
+	colaborador = Colaboradores.objects.all()
+	paginacao_colaboradores = Paginator(colaborador,5)
+	colaborador_filter = ColaboradoresFilter(request.GET, queryset=colaborador)
+
+	try:
+		page = int(request.GET.get('page', '1'))
+		lista = paginacao_colaboradores.page(page)
+	except (EmptyPage, InvalidPage):
+		lista = paginator.page(paginator.num_pages)	
+
+	return render(request,'equipe/lista_colaboradores.html', {"colaborador":lista, 'search':colaborador_filter})
+
 def detalha_lider(request, nr_item):
 	try:
 		item = Lideres.objects.get(pk=nr_item)
@@ -86,3 +112,15 @@ def deleta_equipe(request, nr_item):
   	doc = get_object_or_404(Equipe, pk=nr_item)
   	doc.delete()
   	return redirect("/lista_equipe/")
+
+@login_required
+def deleta_lider(request, nr_item):
+  	doc = get_object_or_404(Lideres, pk=nr_item)
+  	doc.delete()
+  	return redirect("/lista_lideres/")
+
+@login_required
+def deleta_colaborador(request, nr_item):
+  	doc = get_object_or_404(Colaboradores, pk=nr_item)
+  	doc.delete()
+  	return redirect("/lista_colaborador/")

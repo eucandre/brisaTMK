@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^item_cliente/(?P<nr_item>\d+)/$', detalha_Cliente),
     url(r'^Edita_Cliente/(?P<nr_item>\d+)/$', Edita_Cliente),
     url(r'^deleta_cliente/(?P<nr_item>\d+)/$', deleta_cliente),
-    
+
     url(r'^Criasegmento', Cria_segmento),
     url(r'^lista_segmentos', lista_segmento),
      #url(r'^item_segmento/(?P<nr_item>\d+)/$', detalha_segmento),
@@ -33,11 +33,14 @@ urlpatterns = [
     url(r'^item_grupo/(?P<nr_item>\d+)/$', detalha_Grupo),
     url(r'^edita_grupo/(?P<nr_item>\d+)/$', edita_grupo),
     url(r'^deleta_grupo/(?P<nr_item>\d+)/$', deleta_grupo),
+    
     url(r'^Crialideres',Cria_Lider),
-    # url(r'^lista_lideres', lista_lideres),
+    url(r'^lista_lideres', lista_lideres),
     url(r'^CriaColaborador',Cria_Colaborador),
-    
-    
+    url(r'^lista_colaborador',lista_colaborador),
+    url(r'^deleta_lider/(?P<nr_item>\d+)/$', deleta_lider),
+    url(r'^deleta_colaborador/(?P<nr_item>\d+)/$', deleta_colaborador),
+
     url(r'^item_lider/(?P<nr_item>\d+)/$', detalha_lider),
     url(r'^item_colaborador/(?P<nr_item>\d+)/$', detalha_colaborador),
 
