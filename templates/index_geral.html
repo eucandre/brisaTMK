@@ -1,1 +1,36 @@
 {% extends 'base2.html'%}
+{%block conteudo%}
+{%if user.is_staff%}	
+	
+		<div class="table-responsive">          
+	{%for i in log %}		
+  <table class="table">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>Usuário</th>
+        <th>Alterou</th>
+        <th>Objeto</th>
+        <th>Valor</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.user}}</td>
+        <td>{{i.get_change_message }}</td>
+        <td>{{i.content_type }}</td>
+        <td>{{i.get_edited_object }}</td>
+        <td>{{i.action_time }}</td>
+      </tr>
+    </tbody>
+  </table>
+  {%endfor%}
+</div>
+
+	
+{%endif%}
+
+
+{%endblock%}

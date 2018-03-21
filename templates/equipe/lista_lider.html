@@ -2,7 +2,7 @@
 {% block conteudo %}
     
     <div class="col-md-12 col-lg-12">
-        <div class="pull-right"><a href="/CriaUsuario/"><i class="material-icons">&#xe7f0;</i></a></div>
+        <div class="pull-right"><a href="/Crialideres/"><i class="material-icons">&#xe7f0;</i></a></div>
         <h1 style="color:#046350;">Lideres</h1>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Pesquisa</button>
         <br>          
@@ -23,7 +23,7 @@
                 {% for lider in search.qs %}   
                 <tr>
             
-                <td><a href="/item_equipe/{{equipe.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ lider.nome|upper }}</a></td>
+                <td><a href="/item_lider/{{lider.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ lider|upper }}</a></td>
                 
                 <td>
                     
