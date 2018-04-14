@@ -1,5 +1,14 @@
 {% extends "base2.html" %}
 {% block conteudo %}
+	<script type="text/javascript">
+    function Verifica(){
+         // var resposta = confirm("Deseja remover esse registro?");
+
+			   
+			   window.location.href = "/lista_equipes/";
+			   
+    }
+  </script> 
 	<form action="" method="post" >
 		{% csrf_token %}
 
@@ -7,7 +16,7 @@
 	<div class="col-md-10">
 			<hr>
 			<button type="submit" class="btn btn-success">Enviar</button>
-			<button type="reset" class="btn btn-danger">Cancelar</button>
+			<button type="reset" class="btn btn-danger" onclick="Verifica()">Cancelar</button>
 		</div>	
 	</form> 
 {% endblock %}

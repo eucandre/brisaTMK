@@ -27,4 +27,4 @@ class Equipe(models.Model):
 	colaboradores = models.ManyToManyField(Colaboradores)
 
 	def __unicode__(self):
-		return self.nome.__str__()
+		return self.nome

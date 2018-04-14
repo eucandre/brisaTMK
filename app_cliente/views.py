@@ -12,7 +12,8 @@ def Cria_segmento(request):
 	if request.method == 'POST':
 		form = FormSegmento(request.POST)
 		if form.is_valid():
-			form.save()			
+			form.save()	
+			return redirect('/lista_segmentos/')		
 	else:
 		form = FormSegmento()
 	return render(request, 'clientes/cria_segmento.html',{'form':form})
@@ -35,6 +36,7 @@ def Cria_Cliente(request):
 		form = FormCliente(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_clientes/')
 	else:
 		form = FormCliente()
 	return render(request, 'clientes/cria_cliente.html',{'form':form})
@@ -45,6 +47,7 @@ def Edita_Cliente(request, nr_item):
 		form = FormCliente(request.POST, request.FILES, instance= item)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_clientes/')
 	else:
 		form = FormCliente(instance= item)
 	return render(request, 'clientes/cria_cliente.html',{'form':form})
@@ -74,6 +77,7 @@ def Cria_Grupo(request):
 		form = FormGrupo(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_grupos/')
 	else:
 		form = FormGrupo()
 	return render(request, 'clientes/cria_grupo.html',{'form':form})
@@ -97,6 +101,7 @@ def edita_grupo(request, nr_item):
 		form = FormGrupo(request.POST, request.FILES, instance= item)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_grupos/')
 	else:
 		form = FormGrupo(instance= item)
 	return render(request, 'clientes/cria_grupo.html',{'form':form})

@@ -1,0 +1,5 @@
+Quado para excluir o colaborador apresenta uma mensagem para a confirmação ou não da exclusão, não aparece a possível equipe e o perfil deste colaborador.
+
+Os endereços seguem o padrão google inclusive com autocomplete, vou verificar essa opção de inserção de cep e a busca no google.
+
+Falta arrumar a junção do filtro com paginação.

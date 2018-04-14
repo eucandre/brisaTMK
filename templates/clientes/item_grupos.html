@@ -7,7 +7,7 @@
 	<h3>Lista de Clientes do Grupo</h3>
 	<ul>
 		{% for i in item.clientes.all %}
-		<li>{{i}}</li>
+		<li><a href="/item_cliente/{{i.id}}">{{i}}</a></li>
 		{%endfor%}
 	</ul>
 {% endblock %}

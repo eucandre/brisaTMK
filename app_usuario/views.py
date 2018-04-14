@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
-
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
@@ -13,18 +11,21 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from .filter import *
 from .forms import *
 from .models import *
+from app_equipe.models import *
 
 def Cria_Usuario(request):
     if request.method == 'POST':
         form = FormUsuario(request.POST)
         if form.is_valid():
-            form.save()
+	           form.save()
+	           return redirect('/lista_usuarios/')
     else:
         form = FormUsuario()
     return render(request, 'cadastra.html',{'form':form})
 
 def lista_usuarios(request):
 	usuarios = Usuario.objects.all()
+	equipes = Equipe.objects.all()
 	paginacao_usuarios = Paginator(usuarios,5)
 	user_filter = UserFilter(request.GET, queryset=usuarios)
 
@@ -34,7 +35,7 @@ def lista_usuarios(request):
 	except (EmptyPage, InvalidPage):
 		lista = paginator.page(paginator.num_pages)	
 
-	return render(request,'usuarios/lista_usuarios.html', {"usuarios":lista, 'search':user_filter})
+	return render(request,'usuarios/lista_usuarios.html', {"usuarios":lista, 'search':user_filter, 'equipe':equipes	})
 
 def detalha_usuario(request, nr_item):
 	try:
@@ -44,11 +45,12 @@ def detalha_usuario(request, nr_item):
 	return render(request, "usuarios/item_usuario.html", {'item': item})
 
 def edita_usuario(request, nr_item):
-	item = Usuario.objects.get(pk=nr_item)
+	item = get_object_or_404(Usuario, pk=nr_item)
 	if request.method == 'POST':
 		form = FormUsuario(request.POST, instance = item)
 		if form.is_valid():
 			form.save()
+			return redirect("/lista_usuarios/")
 	else:
 		form = FormUsuario(instance= item)
 	return render(request, 'cadastra.html',{'form':form})
@@ -58,3 +60,4 @@ def deleta_usuario(request, nr_item):
   	doc = get_object_or_404(Usuario, pk=nr_item)
   	doc.delete()
   	return redirect("/lista_usuarios/")
+

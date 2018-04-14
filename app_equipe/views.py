@@ -16,6 +16,7 @@ def Cria_Lider(request):
 		form = FormLideres(request.POST)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_lideres/')
 	else:
 		form = FormLideres()
 	return render(request, 'equipe/cria_lideres.html',{'form':form})
@@ -73,6 +74,7 @@ def Cria_Colaborador(request):
 		form = FormColaboradores(request.POST)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_colaborador/')
 	else:
 		form = FormColaboradores()
 	return render(request, 'equipe/cria_promotores.html',{'form':form})
@@ -82,6 +84,7 @@ def Cria_Equipe(request):
 		form = FormEquipe(request.POST)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_equipe/')
 	else:
 		form = FormEquipe()
 	return render(request, 'equipe/cria_equipe.html',{'form':form})
@@ -105,6 +108,7 @@ def edita_equipe(request, nr_item):
 		form = FormEquipe(request.POST, instance= item)
 		if form.is_valid():
 			form.save()
+			return redirect('/lista_equipe/')
 	else:
 		form = FormEquipe(instance = item)
 	return render(request, 'equipe/cria_equipe.html',{'form':form})

@@ -1,7 +1,6 @@
 {% extends "base2.html" %}
 {% block conteudo %}
 
-	
     <div class="col-md-12 col-lg-12">
         <div class="pull-right"><a href="/CriaUsuario/"><i class="material-icons">&#xe7f0;</i></a></div>
         <h1 style="color:#046350;">Colaboradores</h1>
@@ -24,15 +23,25 @@
                 </thead>
                 <tbody>
                 {% for usuario in search.qs %}   
+
+                <script type="text/javascript">
+                    function Verifica(){
+                        var resposta = confirm("Deseja remover esse registro?");
+             
+                 if (resposta == true) {
+                      window.location.href = "/deleta_usuario/{{usuario.id}}";
+                 }
+                    }
+                </script>   
+
+
                 <tr>
-            
+                
                 <td><a href="/item_usuario/{{usuario.id}}" style="text-decoration: none; font-weight: bold; color: #d4bb77;">{{ usuario.nome|upper }}</a></td>
                 <td>{{usuario.telefone}}</td>
                 <td>{{usuario.cargo}}</td>
                 <td>
-                    
-                    <button type="button" class="btn btn-default btn-sm"><a href="deleta_usuario/{{usuario.id}}">
-                      <span class="glyphicon glyphicon-trash" style="color: #d4bb77;"></span><a href="/deleta_usuario/{{usuario.id}}">Excluir</a> 
+                    <button type="button" class="btn btn-default btn-sm"    onclick="Verifica()" ><a href="javascript:func()"><span class="glyphicon glyphicon-trash" style="color: #d4bb77;"></span><a href="javascript:func()">Excluir</a> 
                     </button>
                 </td>
           </tr>
@@ -44,7 +53,7 @@
 
     </form>
     
-
+    
 <div class="pagination">
     <span class="step-links">
         {% if usuarios.has_previous %}

@@ -2,7 +2,7 @@
 {% block conteudo %}
 	<h1>{{item.nome_fantasia}} </h1>
 	<div class="pull-right"><a href="/CriaCliente/"><i class="material-icons">&#xe7f0;</i></a>
-		<a href="/Edita_Cliente/{{item.id}}/" title="Editar Equipe"><i class="material-icons">&#xE869;</i></a>
+		<a href="/Edita_Cliente/{{item.id}}/" title="Editar Cliente"><i class="material-icons">&#xE869;</i></a>
 	</div>
 	<div class="col-md-9 col-sm-9">	
 		<span> do ramo {{item.segmento}}</span>
@@ -34,7 +34,7 @@
 		        <td>{{ item.email }}</td>
 		        <td>{{ item.contato }}</td>
 		        <td>{{ item.cargo_contato }}</td>
-		        <td><a href="{{ item.imagem_loja.url }}"><img src="{{ item.imagem_loja.url }}" width="100"></a></td>
+		        <td><a href="{{ item.imagem_loja.url }}"><img src="{{ item.imagem_loja.url }}" width="100" class="img-thumbnail"></a></td>
 		        <td>{{ item.colaborador_responsavel }}</td>
 
 		      </tr>
